@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: coupon-eureka
+
+server:
+  port: 8000
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+#    single node eureka server is false
+#    multiple nodes eureka server is true for acquiring registry info from Eureka Server
+    fetch-registry: false
+#    whether register itself to Eureka Server, single node is false
+    register-with-eureka: false
+#    set the address of the eureka server
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

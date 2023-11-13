@@ -1,0 +1,32 @@
+Spring:
+  application:
+    name: JrMerchants
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #autoReconnect断开连接后自动重连
+    url: jdbc:mysql://127.0.0.1:3306/db_couponkeeper?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password:
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      group-id: couponkeeper
+    listener:
+      concurrency: 4
+
+server:
+  port: 9527
+
+
+logging:
+  level:
+    org.springframework.web: ERROR
+    com.howtodoinjava: DEBUG
+    org.hibernate: ERROR
+  file:
+    name: jr-merchants.log

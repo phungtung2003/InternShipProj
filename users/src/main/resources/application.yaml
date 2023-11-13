@@ -1,0 +1,26 @@
+Spring:
+  application:
+    name: JrUsers
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #autoReconnect断开连接后自动重连
+    url: jdbc:mysql://127.0.0.1:3306/db_couponkeeper?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password:
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      group-id: couponkeeper
+    listener:
+      concurrency: 4
+  data:
+    hbase:
+      quorum: 127.0.0.1:2181
+#      三个斜杠代表的是本机地址，而不是hadoop地址
+      rootDir: file:///
+      nodeParent:
